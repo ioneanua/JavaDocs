@@ -1,9 +1,8 @@
 package ro.teamnet.zerotohero.reflection;
 
-import ro.teamnet.zerotohero.reflection.demoObjects.MyClass;
-
 import java.util.HashSet;
 import java.util.Set;
+import ro.teamnet.zerotohero.reflection.demoObjects.MyClass;
 
 public class ClassReflectionDemo {
 
@@ -29,7 +28,7 @@ public class ClassReflectionDemo {
         System.out.println(c);
 
         //get class for specified class name
-        //c = Class.forName("ro.teamnet.zerotohero.reflection.E");
+        c = Class.forName("ro.teamnet.zerotohero.reflection.E");
         System.out.println(c);
 
         //get class for primitive type associated to a class
