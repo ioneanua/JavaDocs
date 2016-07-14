@@ -3,18 +3,8 @@ package ro.teamnet.zth.api.em;
 import org.junit.Test;
 import ro.teamnet.zth.api.annotations.Column;
 import ro.teamnet.zth.appl.domain.Department;
-import ro.teamnet.zth.appl.domain.Location;
-
-import java.lang.reflect.Field;
 import java.util.List;
-
 import static org.junit.Assert.assertEquals;
-
-
-/**
- * Created by user on 7/7/2016.
- */
-
 
 public class EntityUtilsTest {
 
@@ -25,27 +15,14 @@ public class EntityUtilsTest {
     }
 
     @Test
-    public void testGetColumns() {
-        List<ColumnInfo> columnList = EntityUtils.getColumns(Department.class);
-        assertEquals("Size should be 11", columnList.size(), 11);
+    public void testGetColumnsMethod() {
+        List<ColumnInfo> columns = EntityUtils.getColumns(Department.class);
+        assertEquals(3, columns.size());
     }
 
     @Test
-    public void testCastFromSqlTypeMethod(){
-        Object obj = EntityUtils.castFromSqlType(2, Column.class);
-        assert (obj instanceof Integer);
-    }
-
-    @Test
-    public void testGetFieldByAnnotation(){
-        List<Field> listNew = EntityUtils.getFieldsByAnnotation(Location.class, Column.class);
-        assertEquals("Size should be 3", listNew.size(), 3);
-    }
-
-    @Test
-    public void testSetSqlMethod() throws IllegalAccessException {
-        Object obj = EntityUtils.getSqlValue(new ColumnInfo());
-        assert (obj instanceof Field);
+    public void testGetFieldsByAnnotations() throws NoSuchFieldException {
+        assertEquals(2, EntityUtils.getFieldsByAnnotations(Department.class, Column.class).size());
     }
 
 }
